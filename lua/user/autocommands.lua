@@ -5,6 +5,8 @@ vim.cmd [[
     autocmd TextYankPost * silent!lua require('vim.highlight').on_yank({higroup = 'Visual', timeout = 200}) 
     autocmd BufWinEnter * :set formatoptions-=cro
     autocmd FileType qf set nobuflisted
+    " delete trailing whitespace at the ends of lines
+    autocmd BufWritePre * %s/\s\+$//e
   augroup end
 
   augroup _git
